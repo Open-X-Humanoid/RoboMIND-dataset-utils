@@ -8,4 +8,10 @@ It is highly likely that a blocking issue occurred at the collection end during 
 ### Impact on Training
 Our data is primarily oriented towards VLA (Vision-Language-Action) training, where the core feature utilized is the joint_position.If the end effector pose is strictly required for your specific use case, it can be recalculated via forward kinematics using the corresponding model's URDF combined with the joint_position.
 
-The check script, calculation script, and a detailed CSV report are attached. You can use them to independently verify or filter the affected episodes.
+This repository includes the following contents:
+
+- Check script
+
+- joint2pose script
+
+- detailed CSV report
