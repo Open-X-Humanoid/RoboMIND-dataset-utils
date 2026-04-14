@@ -1,4 +1,4 @@
-## RoboMIND-eepose
+## RoboMIND-dataset-utils
 We developed a set of data quality check scripts. After performing a full scan across benchmark1_0/1_1/1_2, we discovered that the puppet/end_effector data anomalies (where the values remain almost constant) are primarily concentrated in the following three data categories: h5_ur_1rgb, h5_simulation, and h5_sim_franka_3rgb.
 The EE (end effector) data for the other models (h5_franka_1rgb/3rgb, h5_agilex_3rgb, h5_tienkung_xsens_1rgb, h5_franka_fr3_dual) is normal.
 
