@@ -1,0 +1,48 @@
+<mujoco model="ur5">
+  <compiler angle="radian" meshdir="../meshes/ur5/"/>
+  <option timestep="0.001" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" solver="Newton" iterations="200" tolerance="1e-6"/>
+  <asset>
+    <mesh name="base" file="base.stl"/>
+    <mesh name="shoulder" file="shoulder.stl"/>
+    <mesh name="upperarm" file="upperarm.stl"/>
+    <mesh name="forearm" file="forearm.stl"/>
+    <mesh name="wrist1" file="wrist1.stl"/>
+    <mesh name="wrist2" file="wrist2.stl"/>
+    <mesh name="wrist3" file="wrist3.stl"/>
+  </asset>
+
+  <worldbody>
+    <geom type="mesh" mesh="base"/>
+    <body name="shoulder_link" pos="0 0 0.089159">
+      <inertial pos="0 0 0" mass="3.7" diaginertia="0.0102675 0.0102675 0.00666"/>
+      <joint name="shoulder_pan_joint" pos="0 0 0" axis="0 0 1" range="-6.28319 6.28319" actuatorfrcrange="-150 150"/>
+      <geom type="mesh" mesh="shoulder"/>
+      <body name="upper_arm_link" pos="0 0.13585 0" quat="0.707107 0 0.707107 0">
+        <inertial pos="0 0 0.28" mass="8.393" diaginertia="0.226891 0.226891 0.0151074"/>
+        <joint name="shoulder_lift_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-150 150"/>
+        <geom type="mesh" mesh="upperarm"/>
+        <body name="forearm_link" pos="0 -0.1197 0.425">
+          <inertial pos="0 0 0.25" mass="2.275" diaginertia="0.0494433 0.0494433 0.004095"/>
+          <joint name="elbow_joint" pos="0 0 0" axis="0 1 0" range="-3.14159 3.14159" actuatorfrcrange="-150 150"/>
+          <geom type="mesh" mesh="forearm"/>
+          <body name="wrist_1_link" pos="0 0 0.39225" quat="0.707107 0 0.707107 0">
+            <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173"/>
+            <joint name="wrist_1_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-28 28"/>
+            <geom type="mesh" mesh="wrist1"/>
+            <body name="wrist_2_link" pos="0 0.093 0">
+              <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="1.219" diaginertia="0.21942 0.111173 0.111173"/>
+              <joint name="wrist_2_joint" pos="0 0 0" axis="0 0 1" range="-6.28319 6.28319" actuatorfrcrange="-28 28"/>
+              <geom type="mesh" mesh="wrist2"/>
+              <body name="wrist_3_link" pos="0 0 0.09465">
+                <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.1879" diaginertia="0.033822 0.0171365 0.0171365"/>
+                <joint name="wrist_3_joint" pos="0 0 0" axis="0 1 0" range="-6.28319 6.28319" actuatorfrcrange="-28 28"/>
+                <geom type="mesh" mesh="wrist3"/>
+                <geom size="0.005 0.005 0.005" pos="0 0.0723 0" quat="0.707107 0 0 0.707107" type="box"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
